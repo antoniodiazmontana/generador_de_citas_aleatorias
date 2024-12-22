@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://unpkg.com/vue@3"></script>
+    <title>Generador de Citas Aleatorias</title>
+    <!-- <audio src="./assets/audio/Zen_Music.mp3" autoplay loop></audio> -->
+    <style>
+      body {
+        margin: 0;
+        border: 0;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        background-image: url(./assets/img/pexels-pixabay-235990.jpg);
+        background-size: cover;
+        box-sizing: border-box;
+      }
+
+      div {
+        font-size: larger;
+        color: #e89426;
+        width: 80%;
+        padding: 70px;
+        border: 1px solid black;
+        background-color: #f7efdf;
+        border-radius: 25px;
+        box-shadow: 2px 2px 20px 1px #999999;
+        opacity: 80%;
+      }
+
+      h1 {
+        padding-bottom: 40px;
+      }
+
+      button {
+        font-weight: bold;
+        padding: 15px;
+        border-radius: 10px;
+        background-color: #e9bd85;
+      }
+
+      button:hover {
+        cursor: pointer;
+        background-color: #e89426;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <h1>{{ message }}</h1>
+      <button @click="generarCita">Generar cita</button>
+    </div>
+    <script>
+      const app = Vue.createApp({
+        data() {
+          return {
+            message: "Cita Aleatoria Aparecerá Aquí",
+            citas: [
+              {
+                id: 1,
+                cita: "La vida es lo que pasa mientras estás ocupado haciendo otros planes.",
+              },
+              { id: 2, cita: "No cuentes los días, haz que los días cuenten." },
+              {
+                id: 3,
+                cita: "La felicidad no es algo hecho. Viene de tus propias acciones.",
+              },
+              {
+                id: 4,
+                cita: "El futuro pertenece a aquellos que creen en la belleza de sus sueños.",
+              },
+              {
+                id: 5,
+                cita: "El único modo de hacer un gran trabajo es amar lo que haces.",
+              },
+              {
+                id: 6,
+                cita: "La vida es lo que ocurre mientras estás ocupado haciendo otros planes.",
+              },
+              {
+                id: 7,
+                cita: "Haz hoy lo que otros no quieren, haz mañana lo que otros no pueden.",
+              },
+              {
+                id: 8,
+                cita: "La única forma de hacer un gran trabajo es amar lo que haces.",
+              },
+              { id: 9, cita: "Todo lo que puedas imaginar es real." },
+              {
+                id: 10,
+                cita: "No te preocupes por los fracasos, aprende de ellos.",
+              },
+              {
+                id: 11,
+                cita: "La imaginación es más importante que el conocimiento.",
+              },
+              {
+                id: 12,
+                cita: "La vida comienza donde termina la zona de confort.",
+              },
+              {
+                id: 13,
+                cita: "Lo único imposible es aquello que no intentas.",
+              },
+              {
+                id: 14,
+                cita: "El éxito no es la clave de la felicidad. La felicidad es la clave del éxito.",
+              },
+              { id: 15, cita: "Si puedes soñarlo, puedes hacerlo." },
+            ],
+          };
+        },
+        methods: {
+          generarCita() {
+            const indiceAleatorio = Math.floor(
+              Math.random() * this.citas.length
+            );
+            const citaAleatoria = this.citas[indiceAleatorio].cita;
+            this.message = citaAleatoria;
+          },
+        },
+      });
+
+      app.mount("#app");
+    </script>
+  </body>
+</html>
